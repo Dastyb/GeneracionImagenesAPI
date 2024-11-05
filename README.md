@@ -20,19 +20,22 @@ Para ejecutar esta API que ha sido contruida debe garantizarse que en el entorno
 1. **Clonar el repositorio**:
 
    git clone https://github.com/Dastyb/GeneracionImagenesAPI
+
+2. **Cambiar al directorio del proyecto**: 
+
    cd GeneracionImagenesAPI
 
-2. **Instalar dependencias**: Se debe ejecutar el siguiente comando en la ubicación raíz del proyecto para poder instalar las bibliotecas necesarias, para la correcta funcionalidad de la API:
+4. **Instalar dependencias**: Se debe ejecutar el siguiente comando en la ubicación raíz del proyecto para poder instalar las bibliotecas necesarias, para la correcta funcionalidad de la API:
 
     pip install -r requirements.txt
 
-3. **Configurar variables de entorno**: Se debe crear un archivo .env en la carpeta raíz del proyecto, donde se deberán agregar las siguientes credenciales:
+5. **Configurar variables de entorno**: Se debe crear un archivo .env en la carpeta raíz del proyecto, donde se deberán agregar las siguientes credenciales:
 
-    OPENAI_API_KEY=api_key_Obtenida_de_OpenAI
-    AWS_ACCESS_KEY_ID=acces_key_Obtenida_de_AWS
-    AWS_SECRET_ACCESS_KEY=secret_key_Obtenida_de_AWS
+    - OPENAI_API_KEY=api_key_Obtenida_de_OpenAI,
+    - AWS_ACCESS_KEY_ID=acces_key_Obtenida_de_AWS,
+    - AWS_SECRET_ACCESS_KEY=secret_key_Obtenida_de_AWS
 
-    - **OPENAI_API_KEY**: Almacena la ApiKey que fue generada desde OpenAI, ara acceder al servicio de generación de imagenes.
+    - **OPENAI_API_KEY**: Almacena la ApiKey que fue generada desde OpenAI, para acceder al servicio de generación de imagenes.
     - **AWS_ACCESS_KEY_ID** y **AWS_SECRET_ACCESS_KEY**: Son las claves generadas, para poder acceder a AWS S3.
     - **RENOMBRAR BUCKETNAME EN main.py**: Es importante ingresar a main.py y modificar la variable llamada "BUCKET_NAME", donde se debe ingresar el respectivo nombre del bucket que se haya creado de manera independiente en el servicio de S3.
     - **Seleccion de región en S3**: Se debe ingresar a main.py y registrar en la variable denominada "region_name" el nombre de la respectiva región en la cual se encuentra el servicio S3 propio en AWS.
@@ -55,7 +58,7 @@ Este endpoint creado permite tanto generar imágenes desde texto como cargar una
     - text (opcional): Una cadena de texto prompt que describra a detalle la solicitud de imagen que se desea crear.
     - file (opcional): Carga de un archivo de imagen (PNG o JPG) al cual se le aplicará una transformación mediante IA, que modificará la imagen original.
 
-2. **Ejemplo de Solicitud**: A continuación se mostrará 2 ejemplos, que demosrtarán las funcionalidades construidas, a su vez servirá como  ejemplo para realizar la solicitud POST haciendo uso de POSTMAN para la verificación de la API:
+2. **Ejemplo de Solicitud**: A continuación se mostrará 2 ejemplos, que demosrtarán las funcionalidades construidas, a su vez servirá como  ejemplo para realizar la solicitud POST directamente desde consola para la verificación de la API:
 
     * Generación desde texto:
 
