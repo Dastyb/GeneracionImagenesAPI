@@ -1,5 +1,4 @@
 # API para Generación y Modificación de Imágenes usando IA con OpenAI y Almacenamiento en AWS S3
-# Prueba Tecnica Obsorn IA
 # Desarrollado por: Dayan Styben Auzaque Lancheros
 
 ## Descripción General
@@ -43,7 +42,7 @@ Para ejecutar esta API que ha sido contruida debe garantizarse que en el entorno
 ## Ejecución de la API
 Una vez configurados los requerimientos mencionados del proyecto, se puede iniciar el servidor FastAPI de manera local, mediante el siguiente comando:
 
-    * uvicorn main:app --reload
+    uvicorn main:app --reload
 
 Esto iniciará el servidor en el localhost: http://127.0.0.1:8000 y a su vez se podrá acceder a la documentación interactiva de Swagger generada autoamticamente en la ruta: http://127.0.0.1:8000/docs.
 
