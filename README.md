@@ -19,8 +19,8 @@ Para ejecutar esta API que ha sido contruida debe garantizarse que en el entorno
 ## Configuración del Proyecto
 1. **Clonar el repositorio**:
 
-   git clone <URL_repositorio>
-   cd <nombre_repositorio>
+   git clone https://github.com/Dastyb/GeneracionImagenesAPI
+   cd GeneracionImagenesAPI
 
 2. **Instalar dependencias**: Se debe ejecutar el siguiente comando en la ubicación raíz del proyecto para poder instalar las bibliotecas necesarias, para la correcta funcionalidad de la API:
 
