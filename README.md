@@ -78,16 +78,18 @@ Este endpoint creado permite tanto generar imágenes desde texto como cargar una
     https://generacion-imagenes-ia-dastyb.s3.amazonaws.com/b35ad417-49f5-4111-97d8-5abc16bb32f7.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4SZHOBCMX7U72KXE%2F20241105%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241105T083332Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=5e856719258068beea7eb542ff2ba05ac5157967557c92b890096d1b19dac77b
     
 ## Descripción de seguridad
-A continuacuón se presentan los conceptos claves que se tuvieron en cuenta en cuenta  seguridad al momento de la creación de la API:
-    - **Control de acceso**: Las imagenes que son cargadas en S3, solamente son accesibles al publico atraves de URLs firmadas qeu expiran automaticamente despues de un determinado periodo de tiempo que fe definido (actualmente 1 semana)  
-    - **Almacenamiento de credenciales**: Las credenciales empleadas (Claves de OpenAI y AWS) son almacenadas en un archivo .env, lo cual grantiza que dichas claves sean privadas para cada usuario.
-    - **Manejo de errores**: La API construida cuneta con un manejo de errores comunes, como la carga de imagenes o problemas de conexión con el servicio, retornando mensajes de error descriptivos para el usuario.
+A continuacuón se presentan los conceptos claves que se tuvieron en cuenta en cuenta respecto a seguridad al momento de la creación de la API:
+
+   * **Control de acceso**: Las imagenes que son cargadas en S3, solamente son accesibles al publico atraves de URLs firmadas qeu expiran automaticamente despues de un determinado periodo de tiempo que fe definido (actualmente 1 semana).
+   * **Almacenamiento de credenciales**: Las credenciales empleadas (Claves de OpenAI y AWS) son almacenadas en un archivo .env, lo cual grantiza que dichas claves sean privadas para cada usuario.
+   * **Manejo de errores**: La API construida cuneta con un manejo de errores comunes, como la carga de imagenes o problemas de conexión con el servicio, retornando mensajes de error descriptivos para el usuario.
 ## Estructura del código, patrones y modularización
 Toda la lógica construida de la API se encuentra en el archivo main.py, donde se incluyen tanto los endpoint contruidos como las funciones auxiliares.
 Por ende, para esta API los patrones de diseño empleados son los siguientes:
-    - **Factory method**: Ha sido usado para crear variaciones de imagenes con OpenAI, donde se instancia un nuevo proceso para la transformación segun el tipo de solicitud.
-    - **Gestión de dependencias**: Utiliza dotenv para cargar las variables de entorno que se encuentran en .env y botos3 como cliente para gestionar la conexión con S3.
-    - **Modularización**: La logica que se ha construido en esta API ha sido dividida en funciones claras que permiten facilitar la escalabilidad y el mantenimiento de la misma, dichasa funciones principales pueden observarse a continuación: 
-        **upload_image_to_s3**: Realiza el proceso de carga de la imagen que se ha gestionado en openAI al servicio S3 de AWS y a su vez retorna la URL firmada
-        **generate_presigned_url**: Retorna una URL firmada para el acceso seguro a la respectiva imagen.
-        **generate_image_variation**: Realiza el proceso encargado de realizar las variaciones o modificaciones a las imaganes que son cargadas por el usuario, haciendo uso de OpenAI.
+
+   - **Factory method**: Ha sido usado para crear variaciones de imagenes con OpenAI, donde se instancia un nuevo proceso para la transformación segun el tipo de solicitud.
+   - **Gestión de dependencias**: Utiliza dotenv para cargar las variables de entorno que se encuentran en .env y botos3 como cliente para gestionar la conexión con S3.
+   - **Modularización**: La logica que se ha construido en esta API ha sido dividida en funciones claras que permiten facilitar la escalabilidad y el mantenimiento de la misma, dichasa funciones principales pueden observarse a continuación: 
+   - **upload_image_to_s3**: Realiza el proceso de carga de la imagen que se ha gestionado en openAI al servicio S3 de AWS y a su vez retorna la URL firmada
+   - **generate_presigned_url**: Retorna una URL firmada para el acceso seguro a la respectiva imagen.
+   - **generate_image_variation**: Realiza el proceso encargado de realizar las variaciones o modificaciones a las imaganes que son cargadas por el usuario, haciendo uso de OpenAI.
