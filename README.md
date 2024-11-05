@@ -79,9 +79,9 @@ Este endpoint creado permite tanto generar imágenes desde texto como cargar una
     
 ## Descripción de seguridad
 A continuacuón se presentan los conceptos claves que se tuvieron en cuenta en cuenta  seguridad al momento de la creación de la API:
-    -**Control de acceso**: Las imagenes que son cargadas en S3, solamente son accesibles al publico atraves de URLs firmadas qeu expiran automaticamente despues de un determinado periodo de tiempo que fe definido (actualmente 1 semana)  
-    -**Almacenamiento de credenciales**: Las credenciales empleadas (Claves de OpenAI y AWS) son almacenadas en un archivo .env, lo cual grantiza que dichas claves sean privadas para cada usuario.
-    -**Manejo de errores**: La API construida cuneta con un manejo de errores comunes, como la carga de imagenes o problemas de conexión con el servicio, retornando mensajes de error descriptivos para el usuario.
+    - **Control de acceso**: Las imagenes que son cargadas en S3, solamente son accesibles al publico atraves de URLs firmadas qeu expiran automaticamente despues de un determinado periodo de tiempo que fe definido (actualmente 1 semana)  
+    - **Almacenamiento de credenciales**: Las credenciales empleadas (Claves de OpenAI y AWS) son almacenadas en un archivo .env, lo cual grantiza que dichas claves sean privadas para cada usuario.
+    - **Manejo de errores**: La API construida cuneta con un manejo de errores comunes, como la carga de imagenes o problemas de conexión con el servicio, retornando mensajes de error descriptivos para el usuario.
 ## Estructura del código, patrones y modularización
 Toda la lógica construida de la API se encuentra en el archivo main.py, donde se incluyen tanto los endpoint contruidos como las funciones auxiliares.
 Por ende, para esta API los patrones de diseño empleados son los siguientes:
