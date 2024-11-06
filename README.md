@@ -65,7 +65,7 @@ Este endpoint creado permite tanto generar imágenes desde texto como cargar una
 
     * Modificación de una imagen cargada:
 
-    curl -X POST "http://127.0.0.1:8000/generate-image/" -F "file=C:\Imagenes_Prueba\Imagen_Prueba_Carga_Gato_Animado.png"
+    curl -X POST "http://127.0.0.1:8000/generate-image/" -F "file=@C:\Imagenes_Prueba\Imagen_Prueba_Carga_Gato_Animado.png"
 
     La ruta a agregar será la caracteristica donde se encuentre la imagen que se desea modificar.
 
